@@ -1,2 +1,30 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<h1>商品新規登録</h1>
+<%= form_with model: @item do |f| %>
+<table>
+  <tbody>
+    <tr>
+      <div class="field">
+        <th>商品画像</th>
+        <td>
+          <%= f.label :"(姓)" %>
+          <%= f.text_field :last_name, autofocus: true %>
+        </td>
+        ＜＜
+        <td>
+          <%= f.label :"(名)" %>
+          <%= f.text_field :first_name, autofocus: true %>
+        </td>
+      </div>
+      
+
+          <div class="actions">
+            <tr>
+              <th></th>
+              <td>
+              <%= f.submit "新規登録" %>
+              </td>
+            </tr>
+          </div>
+  </tbody>
+</table>
+<% end %>
