@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+ devise_for :admin,skip: [:registrations, :passwords], controllers: {
+  sessions: "admin/sessions"
+}
   
+  devise_for :customers,skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+ }
   namespace :admin do
     root to: 'homes#top'
     
@@ -9,10 +16,11 @@ Rails.application.routes.draw do
     resources :orders, only: [:update, :show]
     resources :order_details, only: [:update]
   end
+   
   
-  namespace :public do
-    root to: 'homes#top'
-    get 'home/about' => 'homes#about', as: 'about'
+   scope module: :public do
+    get "/" => "homes#top"
+    get '/about' => 'homes#about', as: 'about'
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update]
     get 'customers/unsubscribe'
@@ -26,14 +34,7 @@ Rails.application.routes.draw do
     
   end
   
- devise_for :customers,skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
- }
  
-  
-  devise_for :admin,skip: [:registrations, :passwords], controllers: {
-  sessions: "admin/sessions"
-}
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-end
+ end
