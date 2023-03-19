@@ -1,30 +1,69 @@
 <h1>商品新規登録</h1>
-<%= form_with model: @item do |f| %>
+<%= form_with model: @item, url: admin_items_path do |f| %>
 <table>
   <tbody>
-    <tr>
-      <div class="field">
+    <div class="field">
+      <tr>
         <th>商品画像</th>
         <td>
-          <%= f.label :"(姓)" %>
-          <%= f.text_field :last_name, autofocus: true %>
+          <%= f.file_field :image, accept: "image/*" %>
         </td>
-        ＜＜
+      </tr>
+    </div>
+    <div class="field">
+      <tr>
+        <th>商品名</th>
         <td>
-          <%= f.label :"(名)" %>
-          <%= f.text_field :first_name, autofocus: true %>
+          <%= f.text_field :name, autofocus: true %>
         </td>
-      </div>
-      
+      </tr>
+    </div>
+    <div class="field">
+      <tr>
+        <th>商品説明</th>
+        <td>
+          <%= f.text_area :introduction, autofocus: true %>
+        </td>
+      </tr>
+    </div>
+    <div class="field">
+      <tr>
+        <th>ジャンル</th>
+        <td>
+          <%= f.collection_select(:genre_id, Genre.all, :id, :name, prompt: "選択してください") %>
+        </td>
+      </tr>
+    </div>
+    <div class="field">
+      <tr>
+        <th>税抜価格</th>
+        <td>
+          <%= f.text_field :price, autofocus: true %>
+        </td>
+      </tr>
+    </div>
 
-          <div class="actions">
-            <tr>
-              <th></th>
-              <td>
-              <%= f.submit "新規登録" %>
-              </td>
-            </tr>
-          </div>
+    <div class="field">
+      <tr>
+        <th>販売ステータス</th>
+        <td>
+          <%= f.radio_button :is_active, true %>
+          <%= f.label :"販売中" %>
+
+          <%= f.radio_button :is_active, false %>
+          <%= f.label :"販売停止中" %>
+        </td>
+      </tr>
+    </div>
+
+    <div class="actions">
+      <tr>
+        <th></th>
+        <td>
+          <%= f.submit "新規登録" %>
+        </td>
+      </tr>
+    </div>
   </tbody>
 </table>
 <% end %>
