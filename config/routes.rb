@@ -23,12 +23,16 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about', as: 'about'
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update]
+    get 'customers/my_page' => 'customers#show'
     get 'customers/unsubscribe'
     get 'customers/withdraw'#patch
-    resources :cart_items, only: [:index, :update, :destroy, :create]
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items, only: [:index, :update, :destroy, :create,]
+
+
     #destroy_all?後で追加？
     resources :orders, only: [:new, :create, :index, :show]
-    get 'orders/comfirm'#post
+    post 'orders/comfirm' => 'orders#comfirm'#post
     get 'orders/complete'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 

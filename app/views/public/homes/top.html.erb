@@ -1,2 +1,16 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<h1>ようこそ長野ケーキへ</h1>
+<p>新着商品</p>
+<% @item.each do |item| %> 
+<table>
+  <tr>
+    <td><%= image_tag item.get_image(100,100) %></td>
+  </tr>
+  <tr>
+    <td><%= item.name %></td>
+  </tr>
+  <tr>
+    <td><%= item.with_tax_price %></td>
+  </tr>
+</table>
+<% end %>
+<%= link_to "すべての商品を見る＞", items_path %>
