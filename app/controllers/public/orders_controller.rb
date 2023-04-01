@@ -9,7 +9,7 @@ class Public::OrdersController < ApplicationController
     @order.save
     @cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
-      order_detail = OrderDetail.new
+      order_detail = @order.order_details.new
       order_detail.item_id = cart_item.item.id
       order_detail.amount = cart_item.amount
       order_detail.price = cart_item.item.price
@@ -49,10 +49,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders.all
+    @orders= current_customer.orders.all
+
   end
 
   def show
+    @order = Order.find(params[:id]) 
   end
 
    private

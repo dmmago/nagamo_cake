@@ -1,5 +1,5 @@
 <h1>会員情報編集</h1>
-<%= form_with model: @customer, url: customer_registration_path do |f| %>
+<%= form_with model: @customer, url: customers_information_path do |f| %>
   
   <table>
     <tbody>
@@ -73,6 +73,7 @@
           </div>
     </tbody>
   </table>
+  <%= link_to "退会する", customers_unsubscribe_path %>
   
 
 
