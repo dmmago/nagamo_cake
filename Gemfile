@@ -59,3 +59,4 @@ gem 'kaminari','~> 1.2.1'
 gem 'image_processing', '~> 1.2'
  gem "enum_help"
  gem 'pry-byebug', group: :development
+ gem 'rails-i18n'

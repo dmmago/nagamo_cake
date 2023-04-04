@@ -33,9 +33,10 @@ Rails.application.routes.draw do
 
 
     #destroy_all?後で追加？
+     get 'orders/complete' => 'orders#complete'
     resources :orders, only: [:new, :create, :index, :show]
     post 'orders/comfirm' => 'orders#comfirm'#post
-    get 'orders/complete'
+    
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
   end
