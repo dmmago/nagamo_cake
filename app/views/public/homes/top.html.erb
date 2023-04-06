@@ -1,17 +1,35 @@
-<div class = container ></div>
-<h1>ようこそ長野ケーキへ</h1>
-<p>新着商品</p>
-<% @item.each do |item| %> 
-<table>
-  <tr>
-    <td><%= image_tag item.get_image(100,100) %></td>
-  </tr>
-  <tr>
-    <td><%= item.name %></td>
-  </tr>
-  <tr>
-    <td><%= item.with_tax_price %></td>
-  </tr>
-</table>
-<% end %>
-<%= link_to "すべての商品を見る＞", items_path %>
+
+<header class="py-5">
+  <div class="container px-lg-5">
+    <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+      <div class="m-4 m-lg-5">
+        <p class="fs-4">
+          ようこそ長野ケーキへ<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          講入には会員登録が必要になります。
+        </p>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="pt-4">
+  <div class="container px-lg-5">
+    
+      
+      <h2 class="fs-4 fw-bold">新着商品</h2>
+    <div class="row gx-lg-5">
+      <% @items.reverse.each do |item| %>
+      <div class="col">
+        <%= image_tag item.get_image(100,100) %><br>
+        <%= item.name %><br>
+        ￥<%= item.with_tax_price %><br>
+      </div>
+      <% end %>
+   </div>  
+    <div class="text-right">
+      <%= link_to "すべての商品を見る", items_path %>
+    </div>
+  </div>
+  
+</section>

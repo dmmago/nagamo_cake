@@ -6,4 +6,4 @@ class Admin::HomesController < ApplicationController
 
   end
 end
-end
+
