@@ -2,7 +2,7 @@
   <div class="container px-lg-5">
     <div class="row">
       <div class="col">
-        <h3 class="fs-4 fw-bold">商品一覧</h2>
+        <h3 class="fs-4 fw-bold"><span class="bg-light">商品一覧</span></h3>
       </div>
        <div class="pull-right">
           <%= link_to new_admin_item_path do %>
@@ -17,9 +17,9 @@
   <div class="container px-lg-5">
     <div class="row">
       <div class="col">
-          <table class="table">
+          <table class="table table-borderless">
             <thead>
-            <tr>
+            <tr class="bg-light">
               <th>商品ID</th>
               <th>商品名</th>
               <th>税抜価格</th>
@@ -31,7 +31,7 @@
               <% @items.each do |item| %>
             <tr>
               <td><%= item.id %></td>
-              <td><%= link_to item.name, admin_item_path(item.id) %></td>
+              <td><%= link_to item.name, admin_item_path(item.id), class:"text-dark border-bottom border-dark" %></td>
               <td><%= item.price %></td>
               <td><%= item.genre.name %></td>
               <td>
@@ -47,7 +47,12 @@
           </table>
       </div>
     </div>
+    <ul class="pagination justify-content-center">
+    <%= paginate @items %>
+    </ul>
+    </div>
   </div>
 </section>
+
 
 
