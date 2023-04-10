@@ -14,7 +14,13 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
+          
+          <% if admin_signed_in? %>
+          <a class="navbar-brand p-3" href="/admin/customers">LOGO</a>
+          <% else %>
           <a class="navbar-brand p-3" href="/">LOGO</a>
+          <% end %>
+          
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
