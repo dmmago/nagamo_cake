@@ -22,7 +22,7 @@
       <% @items.reverse.each do |item| %>
       <div class="col">
         <%= image_tag item.get_image(100,100) %><br>
-        <%= item.name %><br>
+        <%= link_to item.name, item_path(item.id) %><br>
         ￥<%= item.with_tax_price %><br>
       </div>
       <% end %>

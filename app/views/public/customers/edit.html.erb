@@ -1,80 +1,96 @@
-<h1>会員情報編集</h1>
+<header class="py-5">
+  <div class="container px-lg-5">
+    <div class="row">
+      <div class="col">
+        <h3 class="fs-4 fw-bold"><span class="bg-light">情報編集</span></h3>
+        </div>
+    </div>
+  </div>
+</header>
 <%= form_with model: @customer, url: customers_information_path do |f| %>
-  
-  <table>
-    <tbody>
-      <tr>
-        <div class="field">
-          <th>名前</th>
-          <td>
-            <%= f.label :"(姓)" %>
-            <%= f.text_field :last_name, autofocus: true %>
-          </td>
-          <td>
-            <%= f.label :"(名)" %>
-            <%= f.text_field :first_name, autofocus: true %>
-          </td>
-        </div>
-      </tr>
-        <div class="field">
-          <tr>
-            <th>フリガナ</th>
-            <td>
-              <%= f.label :"(セイ)" %>
-              <%= f.text_field :last_name_kana, autofocus: true %>
-            </td>
-            <td>
-              <%= f.label :"(メイ)" %>
-              <%= f.text_field :first_name_kana, autofocus: true %>
-            </td>
-          </tr>
-        </div>
-        <div class="field">
-          <tr>
-            <th>メールアドレス</th>
-            <td>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </td>
-          </tr>
-        </div>
-        <div class="field">
-          <tr>
-            <th>郵便番号(ハイフンなし)</th>
-            <td>
-              <%= f.text_field :postal_code, autofocus: true %>
-            </td>
-          </tr>
-        </div>
-        <div class="field">
-          <tr>
-            <th>住所</th>
-            <td>
-              <%= f.text_field :address, autofocus: true %>
-            </td>
-          </tr>
-        </div>
-        <div class="field">
-          <tr>
-            <th>電話番号</th>
-            <td>
-              <%= f.text_field :telephone_number, autofocus: true %>
-            </td>
-          </tr>
-        </div>
-        
-        
-          <div class="actions">
+<section class="pt-4">
+    <div class="container px-lg-5">
+      <div class="row">
+        <div class="col">
+        <table class="table table-sm table-borderless">
+          <tbody>
             <tr>
-              <th></th>
-              <td>
-              <%= f.submit "編集内容を保存" %>
-              </td>
+              <div class="field">
+                <th>名前</th>
+                <td>
+                  <%= f.label :"(姓)" %>
+                  <%= f.text_field :last_name, autofocus: true %>
+                </td>
+                <td>
+                  <%= f.label :"(名)" %>
+                  <%= f.text_field :first_name, autofocus: true %>
+                </td>
+              </div>
             </tr>
-          </div>
-    </tbody>
-  </table>
-  <%= link_to "退会する", customers_unsubscribe_path %>
-  
+              <div class="field">
+                <tr>
+                  <th>フリガナ</th>
+                  <td>
+                    <%= f.label :"(セイ)" %>
+                    <%= f.text_field :last_name_kana, autofocus: true %>
+                  </td>
+                  <td>
+                    <%= f.label :"(メイ)" %>
+                    <%= f.text_field :first_name_kana, autofocus: true %>
+                  </td>
+                </tr>
+              </div>
+              <div class="field">
+                <tr>
+                  <th>メールアドレス</th>
+                  <td>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                  </td>
+                </tr>
+              </div>
+              <div class="field">
+                <tr>
+                  <th>郵便番号(ハイフンなし)</th>
+                  <td>
+                    <%= f.text_field :postal_code, autofocus: true %>
+                  </td>
+                </tr>
+              </div>
+              <div class="field">
+                <tr>
+                  <th>住所</th>
+                  <td>
+                    <%= f.text_field :address, autofocus: true %>
+                  </td>
+                </tr>
+              </div>
+              <div class="field">
+                <tr>
+                  <th>電話番号</th>
+                  <td>
+                    <%= f.text_field :telephone_number, autofocus: true %>
+                  </td>
+                </tr>
+              </div>
+              
+              
+                <div class="actions">
+                  <tr>
+                    <th></th>
+                    <td>
+                    <%= f.submit "編集内容を保存", class: "btn btn-success" %>
+                    <%= link_to "退会する", customers_unsubscribe_path, class: "btn btn-danger ml-5" %>
+                    </td>
+                  </tr>
+                </div>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+</section>
+        
 
 
  

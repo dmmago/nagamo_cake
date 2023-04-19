@@ -1,12 +1,21 @@
-<h1>ジャンル編集</h1>
-<%= form_with model: @genre, url: admin_genre_path do |f| %>
-<table>
-    <tbody>
-        <tr>
-            <td>ジャンル名</td>
-            <td><%= f.text_field :name, autofocus: true %></td>
-            <td><%= f.submit "変更を保存" %></td>
-        </tr>
-    </tbody>
-</table>
-<% end %>
+<header class="py-5">
+  <div class="container px-lg-5">
+    <div class="row">
+      <div class="col-7">
+        <h3 class="fs-4 fw-bold"><span class="bg-light">ジャンル編集</span></h3>
+]
+        <%= form_with model: @genre, url: admin_genre_path do |f| %>
+            <table class="table table-sm table-borderless">
+                <tbody>
+                    <tr>
+                        <td>新規登録</td>
+                        <td><%= f.text_field :name, autofocus: true %></td>
+                        <td><%= f.submit "変更を保存", class: "btn btn-success" %></td>
+                    </tr>
+                </tbody>
+            </table>
+            <% end %>
+        </div>
+    </div>
+  </div>
+</header>

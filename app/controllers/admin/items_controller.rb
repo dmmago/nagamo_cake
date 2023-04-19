@@ -9,8 +9,11 @@ class Admin::ItemsController < ApplicationController
   end
   def create
     @item = Item.new(item_params)
-    @item.save
-    redirect_to admin_items_path
+    if @item.save
+      redirect_to admin_item_path(@item)
+    else
+      render :new
+    end
   end
 
   def show
